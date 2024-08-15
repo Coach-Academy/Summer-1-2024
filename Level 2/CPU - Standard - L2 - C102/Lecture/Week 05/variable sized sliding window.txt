@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n  , target;
+    cin >> n >> target;
+    vector<int>v(n);
+    for (int i=0;i<n;i++){
+        cin >> v[i];
+    }
+
+    int start = 0 , en = 0 , sum = 0;
+    while (start<n){
+        while (en < n && sum+v[en]<=target)
+            sum+=v[en] , en++;
+        if (sum == target){
+            cout << "found at : " << start << " " << en-1;
+            return 0 ;
+        }
+        sum-=v[start];
+        start++;
+    }
+
+    cout << -1;
+
+    return 0;
+}
