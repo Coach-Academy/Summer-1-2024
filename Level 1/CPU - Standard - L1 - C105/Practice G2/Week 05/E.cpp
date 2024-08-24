@@ -1,15 +1,25 @@
 #include "iostream"
 #include "string"
-
 using namespace std;
 
-int main() {
+int main(){
     string s;
-    getline(cin, s);
-    int cnt = 0;
-    for(char c = 'a'; c<='z';c++){
-        if(s.find(c) != -1) cnt++;
+    getline(cin ,s);
+
+    int res = 0;
+    string temp = "";
+
+    for(int i = 0; i < s.size();i++){
+        if(isalpha(s[i])){
+            if(temp.find(s[i]) != -1) {
+                continue;
+            } else {
+                temp+= s[i];
+                res++;
+            }
+        }
     }
-    cout << cnt << '\n';
+    cout << res << '\n';
+//    cout << temp.size()<< '\n';
     return 0;
 }
