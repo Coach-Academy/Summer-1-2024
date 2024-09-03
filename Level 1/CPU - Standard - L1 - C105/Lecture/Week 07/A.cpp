@@ -3,11 +3,12 @@
 using namespace std;
 
 int main(){
-    long long n;
+    int n;
     cin >> n;
-    if(n %2 == 0)
-        cout << n/2 << '\n';
-    else
-        cout << -((n+1) /2 )<< '\n' ; // or ceil(n/2.0)
+//    int sum =0;
+//    for(int i =0; i <n ; i++) o(N)
+//        sum += i;
+    // sum of numbers from 1 to N n * (n + 1) /2
+    cout << n * (n + 1) /2 << '\n';
     return 0;
 }
