@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+int f (int x){
+  return x * x;
+}
+int main()
+{
+    int a , b , t;
+    cin >> a >> b >> t;
+
+    int st = a  , en = b , ans = 0 ;
+
+    while (st <= en){
+        int mid = (st + en) / 2;
+        if (f(mid) <= t)
+            ans = mid , st = mid+ 1;
+        else
+            en = mid - 1;
+    }
+    int x = ans + 1;
+    if (x >= a && x <= b){
+      int new_x = f(x);
+      int new_ans = f(ans);
+      if (t - new_x < t - new_ans)
+        ans = x;
+    }
+
+      cout << ans ;
+
+
+
+
+}
