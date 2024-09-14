@@ -1,38 +1,40 @@
 #include <bits/stdc++.h>
+
 using namespace std;
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-#define endl '\n'
-#define yes cout << "YES\n";
-#define no cout << "NO\n";
-#define ll long long
-#define sz(x) (int)x.size()
-#define watch(x) cout << #x << " = " << x << endl
-void zo7le2a(){
-    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-#ifdef Clion
-    freopen("input.txt", "r", stdin);
-    freopen("outputt.txt", "w", stdout);
-#endif
+
+void print(vector<int> v) {
+    cout << v.size() << " ";
+    for (auto i: v)
+        cout << i << " ";
+    cout << endl;
 }
 
-void solve(){
+int main() {
+    vector<int> v1, v2, v3;
     int n;
     cin >> n;
-
-   vector<int> mp(101);
-    for(int i = 0;i<n;i++){
+    while (n--) {
         int x;
-        cin>>x;
-        mp[x]++;
+        cin >> x;
+        if (x < 0)
+            v1.push_back(x);
+        else if (x > 0)
+            v2.push_back(x);
+        else
+            v3.push_back(x);
     }
-    cout << *max_element(all(mp)) << endl;
-}
-signed main() {
-    zo7le2a();
-    int t = 1;
-  //  cin >>t;
-    while(t--){
-        solve();
+    if (v1.size() % 2 == 0) {
+        v3.push_back(v1.back());
+        v1.pop_back();
     }
+    if (v2.empty()) {
+        v2.push_back(v1.back());
+        v1.pop_back();
+        v2.push_back(v1.back());
+        v1.pop_back();
+    }
+    print(v1);
+    print(v2);
+    print(v3);
+    return 0;
 }
