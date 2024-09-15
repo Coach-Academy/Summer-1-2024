@@ -1,18 +1,25 @@
-#include "iostream"
-#include "algorithm"
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
     int n, k;
     cin >> n >> k;
-    int res = 0;
-    string temp = "";
-    for(int i =0;i<=k;i++) temp += i + '0';
-    while (n--) {
+    int res =0;
+    while(n--){
         string s;
         cin >> s;
-        sort(s.begin(),s.end());
-        if(s == temp) res++;
+        bool arr[10] = {0};
+        for(int i= 0; i< s.size();i++)
+            arr[s[i] - '0'] = true;
+        bool flag = true;
+        for(int i =0;i<=k;i++){
+            if(!arr[i]){
+                flag = false;
+                break;
+            }
+        }
+        if(flag) res++;
     }
     cout << res << '\n';
     return 0;
